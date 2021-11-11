@@ -80,12 +80,12 @@ def display_match_history():
   except:
     print('Cannot get match history.')
     return render_template('error.html', error='Cannot get match history.')
-  # print(json_res)
+   print(json_res)
   # Attempt to parse through match history data
   try:
     posts = []
     for match in json_res['Matches']:
-      # print(match)
+       print(match)
       if match['TierBeforeUpdate'] != match['TierAfterUpdate']:
           if match['RankedRatingEarned'] > 0:
             CompetitiveMovement = 'PROMOTED'
@@ -144,7 +144,7 @@ def display_match_history():
 
       posts.append(match_data)
 
-    # print(posts)
+     print(posts)
     return render_template('match_history.html', posts=posts, name=valorant.game_name, title='VALORANTELO - Match History')
   except:
     print('Error parsing match history data.')
